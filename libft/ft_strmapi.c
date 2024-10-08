@@ -6,7 +6,7 @@
 /*   By: jiparcer <jiparcer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:18:02 by jiparcer          #+#    #+#             */
-/*   Updated: 2024/10/08 15:27:27 by jiparcer         ###   ########.fr       */
+/*   Updated: 2024/10/08 16:23:50 by jiparcer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 char	*ft_strmapi(const char *s, char (*f)(unsigned	int, char))
 {
-	unsigned int i;
-	char *chaine;
-	if(!s)
+	unsigned int	i;
+	char			*chaine;
+
+	if (!s)
 	{
 		return (0);
 	}
