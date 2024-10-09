@@ -1,90 +1,99 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jiparcer <jiparcer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/09 17:51:55 by jiparcer          #+#    #+#             */
+/*   Updated: 2024/10/09 18:29:19 by jiparcer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static void free_all(char **result, int words)
+static char	free_all(char **result, int words)
 {
-    for (int i = 0; i < words; i++)
-        free(result[i]);
-    free(result);
+	int	i;
+
+	i = 0;
+	while (i < words)
+	{
+		free(result[i]);
+		i++;
+	}
+	free(result);
+	return (NULL);
 }
-static int count_words(char *str, char c)
+
+static int	count_words(char *str, char c)
 {
-	int in_word;
-	int count;
+	int	in_word;
+	int	count;
 
 	count = 0;
 	in_word = 0;
-	while(*str)
+	while (*str)
 	{
 		if (*str != c && !in_word)
 		{
 			in_word = 1;
 			count++;
 		}
-		else if(*str == c)
+		else if (*str == c)
 			in_word = 0;
 		str++;
 	}
 	return (count);
 }
-static char *malloc_word(const char *str, char c)
-{
-	char *word;
-	int len;
-	int i;
 
-    len = 0;
+static char	*malloc_word(const char *str, char c)
+{
+	char	*word;
+	int		len;
+	int		i;
+
+	len = 0;
 	i = 0;
-    while (str[len] && str[len] != c)
-        len++;
-    word = malloc(sizeof(char) * (len + 1));
-    if (!word)
-        return NULL;
-    while (i < len)
+	while (str[len] && str[len] != c)
+		len++;
+	word = malloc(sizeof(char) * (len + 1));
+	if (!word)
+		return (NULL);
+	while (i < len)
 	{
-        word[i] = str[i];
+		word[i] = str[i];
 		i++;
 	}
-    word[len] = '\0';
-    return word;
+	word[len] = '\0';
+	return (word);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	int words;
-	int i;
-	char **result;
+	int		words;
+	int		i;
+	char	**result;
 
-	i = 0;
 	words = count_words(s, c);
 	result = malloc(sizeof(char *) * (words + 1));
 	if (!result)
-	{
 		return (NULL);
-	}
-	if(!s)
-	{
-		return (NULL);
-	}
-	
-	while (*s) // malloc de toutes les chaines
+	i = 0;
+	while (*s)
 	{
 		if (*s != c)
 		{
 			result[i] = malloc_word(s, c);
-			if(!result[i])
-			{
-				free_all(result, i);
-				return (NULL);
-			}
+			if (!result[i])
+				return (free_all(result, i));
 			i++;
-			while(*s && *s != c)
-			{
+			while (*s && *s != c)
 				s++;
-			}
 		}
 		else
 			s++;
 	}
 	result[i] = NULL;
-	return result;
+	return (result);
 }

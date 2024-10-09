@@ -6,7 +6,7 @@
 /*   By: jiparcer <jiparcer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:02:42 by jimpa             #+#    #+#             */
-/*   Updated: 2024/10/09 14:20:44 by jiparcer         ###   ########.fr       */
+/*   Updated: 2024/10/09 18:29:56 by jiparcer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
-char 	**ft_split(char const *s, char c);
+char	**ft_split(char const *s, char c);
 
 #endif
