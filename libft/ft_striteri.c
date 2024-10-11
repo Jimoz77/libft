@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiparcer <jiparcer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 14:13:01 by jiparcer          #+#    #+#             */
-/*   Updated: 2024/10/11 12:48:45 by jiparcer         ###   ########.fr       */
+/*   Created: 2024/10/11 12:41:42 by jiparcer          #+#    #+#             */
+/*   Updated: 2024/10/11 12:53:48 by jiparcer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int				i;
-	unsigned char	*source;
+	unsigned int	i;
 
-	source = (unsigned char *)s;
-	i = 0;
-	while (i < n)
+	if (!s || !f)
 	{
-		if (source[i] == (unsigned char)c)
-		{
-			return ((void *)(source + i));
-		}
+		return ;
+	}
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
 		i++;
 	}
-	return (NULL);
 }

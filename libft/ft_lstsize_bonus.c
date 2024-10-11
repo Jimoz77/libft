@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiparcer <jiparcer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 14:13:01 by jiparcer          #+#    #+#             */
-/*   Updated: 2024/10/11 12:48:45 by jiparcer         ###   ########.fr       */
+/*   Created: 2024/10/11 13:16:44 by jiparcer          #+#    #+#             */
+/*   Updated: 2024/10/11 14:15:56 by jiparcer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_lstsize(t_list *lst)
 {
-	int				i;
-	unsigned char	*source;
+	int	i;
 
-	source = (unsigned char *)s;
 	i = 0;
-	while (i < n)
+	while (lst != NULL)
 	{
-		if (source[i] == (unsigned char)c)
-		{
-			return ((void *)(source + i));
-		}
 		i++;
+		lst = lst->next;
 	}
-	return (NULL);
+	return (i);
 }

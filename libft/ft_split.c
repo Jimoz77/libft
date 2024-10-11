@@ -6,13 +6,13 @@
 /*   By: jiparcer <jiparcer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 17:51:55 by jiparcer          #+#    #+#             */
-/*   Updated: 2024/10/09 18:29:19 by jiparcer         ###   ########.fr       */
+/*   Updated: 2024/10/11 12:53:14 by jiparcer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	free_all(char **result, int words)
+static char	**free_all(char **result, int words)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ static char	free_all(char **result, int words)
 	return (NULL);
 }
 
-static int	count_words(char *str, char c)
+static int	count_words(const char *str, char c)
 {
 	int	in_word;
 	int	count;
