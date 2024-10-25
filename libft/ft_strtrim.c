@@ -6,7 +6,7 @@
 /*   By: jiparcer <jiparcer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 15:01:48 by jiparcer          #+#    #+#             */
-/*   Updated: 2024/10/07 18:10:29 by jiparcer         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:55:36 by jiparcer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	j = 0;
 	start = 0;
-	end = strlen(s1) - 1;
-	while (s1[start] && strchr(set, s1[start]))
+	end = ft_strlen(s1) - 1;
+	while (s1[start] && ft_strchr(set, s1[start]))
 		start++;
-	while (end >= start && strchr(set, s1[end]))
+	while (end >= start && ft_strchr(set, s1[end]))
 		end--;
 	result = malloc(sizeof(char) * (end - start + 2));
 	if (!result)

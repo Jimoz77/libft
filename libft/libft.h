@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiparcer <jiparcer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jimpa <jimpa@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:02:42 by jimpa             #+#    #+#             */
-/*   Updated: 2024/10/11 15:13:45 by jiparcer         ###   ########.fr       */
+/*   Updated: 2024/10/25 14:25:51 by jimpa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 /* off lib */
 
 # include <stdio.h>
+# include <stdint.h>
+# include <stddef.h>
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <stddef.h>
+
 /* structure*/
 
 typedef struct s_list
@@ -54,7 +56,9 @@ char	*ft_strdup(const char *s1);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+
 /* fonction pt2 */
+
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
@@ -77,5 +81,14 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+/*fonction perso*/
+
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+char	*ft_unitoa(unsigned int n);
+char	*ft_itoa_base(int n, int base);
+char	*ft_itoa_base_printf(unsigned long value, int base);
+int		ft_intlen(int n);
 
 #endif

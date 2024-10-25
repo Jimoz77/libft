@@ -6,13 +6,13 @@
 /*   By: jiparcer <jiparcer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 11:52:21 by jiparcer          #+#    #+#             */
-/*   Updated: 2024/10/11 12:00:44 by jiparcer         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:37:45 by jiparcer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	cb_chiffres(int n)
+static size_t	nb_num(int n)
 {
 	size_t	i;
 
@@ -32,7 +32,7 @@ char	*ft_itoa(int n)
 	size_t		nbchiffres;
 
 	num = n;
-	nbchiffres = cb_chiffres(n);
+	nbchiffres = nb_num(n);
 	if (n < 0)
 	{
 		num *= -1;
